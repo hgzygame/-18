@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Login Interface</title>
+    <style>
+        /* Body and Background Animation */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #84fab0);
+            background-size: 400% 400%;
+            animation: GradientBackground 15s ease infinite;
+        }
+
+        @keyframes GradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Login Container */
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        /* Input Fields */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #FFA500; /* Amber/Yellow color */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #FF8C00; /* Darker Amber/Yellow on hover */
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* Error Message */
+        .error-message {
+            color: #ff4d4d;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        /* Welcome Message */
+        .welcome-message {
+            margin-top: 20px;
+            color: #555;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        /* Korean IP Message */
+        .korean-ip-message {
+            margin-top: 20px;
+            color: #ff4d4d;
+            font-size: 16px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p id="error-message" class="error-message"></p>
+        <!-- Welcome Message -->
+        <p class="welcome-message">আমাদের অ্যাপে আপনাকে স্বাগতম</p>
+        <!-- Korean IP Message -->
+        <p id="korean-ip-message" class="korean-ip-message" style="display: none;">Please use from a Korean IP address.</p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+            const koreanIpMessage = document.getElementById('korean-ip-message');
+
+            if (username === 'EKANDAR' && password === 'BDHGZY') {
+                errorMessage.textContent = '';
+                koreanIpMessage.style.display = 'block';
+                alert('Login successful!');
+                // Redirect or perform other actions after successful login
+            } else {
+                errorMessage.textContent = 'Invalid username or password';
+                koreanIpMessage.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+  </html>
